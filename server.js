@@ -25,7 +25,7 @@ const initBot = async () => {
         let where = null;
 
         if (!Number.isNaN(+accountId)) {
-          where = { accountId };
+          where = { id: accountId };
         } else {
           where = { login: accountId }
         }

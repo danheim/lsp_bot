@@ -19,11 +19,19 @@ const initBot = async () => {
     try {
       const { text } = ctx.message;
       if (text.startsWith('аккаунт')) {
-        const id = text.split(' ')[1];
-        if (!id) return;
+        const accountId = text.split(' ')[1];
+        if (!accountId) return;
+
+        let where = null;
+
+        if (!Number.isNaN(+accountId)) {
+          where = { accountId };
+        } else {
+          where = { login: accountId }
+        }
 
         const account = await models.Account.findOne({
-          where: { id },
+          where,
           include: [
             { model: models.Char },
             {
@@ -38,16 +46,19 @@ const initBot = async () => {
           return await ctx.reply('Аккаунт не найден');
         }
 
-        const { login, Chars: chars, admin } = account;
+        const { id, login, Chars: chars, admin } = account;
 
         let info = 'ID: ' + id
           + '\nЛогин: ' + login
           + '\nАдминистратор: ' + (admin ? `Да (${admin.rank} уровень)` : 'Нет');
 
-        if (chars.length > 0) info += '\n\nПерсонажи:';
-        chars.forEach((char, i) => {
-          info += `\n${i + 1}. ID: ${char.id}, Ник: ${char.login}`
-        });
+        if (chars.length > 0) {
+          info += '\n\nПерсонажи:';
+
+          chars.forEach((char, i) => {
+            info += `\n${i + 1}. ID: ${char.id}, Ник: ${char.login}`
+          });
+        }
 
         if (account) {
           return await ctx.reply(info);

@@ -1,25 +1,25 @@
 const config = {
   "development": {
-    "username": process.env.DB_USER,
-    "password": process.env.DB_PASS,
-    "database": process.env.DB_NAME,
-    "host": process.env.DB_HOST,
+    "username": "chromakeeey",
+    "password": "l1s2p3",
+    "database": "samp",
+    "host": "51.38.127.130",
     "dialect": "mysql",
     "operatorsAliases": false,
   },
   "test": {
-    "username": process.env.DB_NAME,
-    "password": process.env.DB_PASS,
-    "database": process.env.DB_NAME,
-    "host": process.env.DB_HOST,
+    "username": "chromakeeey",
+    "password": "l1s2p3",
+    "database": "samp",
+    "host": "51.38.127.130",
     "dialect": "mysql",
     "operatorsAliases": false
   },
   "production": {
-    "username": process.env.DB_NAME,
-    "password": process.env.DB_PASS,
-    "database": process.env.DB_NAME,
-    "host": process.env.DB_HOST,
+    "username": "chromakeeey",
+    "password": "l1s2p3",
+    "database": "samp",
+    "host": "51.38.127.130",
     "dialect": "mysql",
     "operatorsAliases": false
   }

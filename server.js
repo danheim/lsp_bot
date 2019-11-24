@@ -1,6 +1,6 @@
 // node modules
 const Telegraf = require('telegraf');
-// require('dotenv').config();
+require('dotenv').config();
 
 // helpers
 const { logger } = require('./lib/helpers');

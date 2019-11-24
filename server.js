@@ -26,11 +26,19 @@ const initBot = async () => {
           where: { id },
           include: [
             { model: models.Char },
-            { model: models.Admin },
+            {
+              model: models.Admin,
+              attributes: ['rank'],
+              as: 'admin'
+            },
           ]
         });
 
-        const { login, Chars: chars, Admin: admin } = account;
+        if (!account) {
+          return await ctx.reply('Аккаунт не найден');
+        }
+
+        const { login, Chars: chars, admin } = account;
 
         let info = 'ID: ' + id
           + '\nЛогин: ' + login
@@ -70,6 +78,7 @@ const initBot = async () => {
 
     } catch (e) {
       console.log('Some error happened (on: text)');
+      console.log(e.message);а
     }
   });
 

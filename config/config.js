@@ -3,7 +3,7 @@ const config = {
     "username": process.env.DB_USER,
     "password": process.env.DB_PASS,
     "database": process.env.DB_NAME,
-    "host": process.env.DB_HOST,
+    "host": "51.38.127.130",
     "dialect": "mysql",
     "operatorsAliases": false
   },
@@ -11,7 +11,7 @@ const config = {
     "username": process.env.DB_NAME,
     "password": process.env.DB_PASS,
     "database": process.env.DB_NAME,
-    "host": process.env.DB_HOST,
+    "host": "51.38.127.130",
     "dialect": "mysql",
     "operatorsAliases": false
   },
@@ -19,7 +19,7 @@ const config = {
     "username": process.env.DB_NAME,
     "password": process.env.DB_PASS,
     "database": process.env.DB_NAME,
-    "host": process.env.DB_HOST,
+    "host": "51.38.127.130",
     "dialect": "mysql",
     "operatorsAliases": false
   }

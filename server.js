@@ -93,6 +93,11 @@ const initBot = async () => {
     }
   });
 
+  bot.telegram.getMe().then((botInfo) => {
+    bot.options.username = botInfo.username;
+    console.log('Я тебя слушаю');
+  });
+
   await bot.launch();
 };
 
